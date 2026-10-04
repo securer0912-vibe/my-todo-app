@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <!-- Character encoding: UTF-8 so Korean text renders correctly -->
+  <!-- 문자 인코딩: 한글이 깨지지 않도록 UTF-8 지정 -->
+  <meta charset="UTF-8">
+  <!-- Fit the page to the device screen width -->
+  <!-- 모바일 화면 폭에 맞춰 표시 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나의 할 일 목록</title>
+  <!-- Stylesheet -->
+  <!-- 스타일시트 -->
+  <link rel="stylesheet" href="style.css">
+  <!-- defer: run the script after the HTML is fully parsed -->
+  <!-- defer: HTML을 모두 읽은 뒤 스크립트 실행 -->
+  <script src="main.js" defer></script>
+</head>
+<body>
+  <!-- To-do card centered on the screen -->
+  <!-- 화면 중앙에 배치되는 할 일 카드 -->
+  <main class="card">
+    <!-- Title -->
+    <!-- 제목 -->
+    <h1 class="title">📝 나의 할 일 목록</h1>
+
+    <!-- Input form (no behavior yet) -->
+    <!-- 입력 폼 (아직 기능 없음) -->
+    <form class="todo-form">
+      <input type="text" class="todo-input" placeholder="할 일을 입력하세요" aria-label="할 일">
+      <button type="submit" class="add-btn">추가</button>
+    </form>
+
+    <!-- Filter buttons -->
+    <!-- 필터 버튼 -->
+    <div class="filters" role="group" aria-label="필터">
+      <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">전체</button>
+      <button type="button" class="filter-btn" data-filter="active" aria-pressed="false">진행중</button>
+      <button type="button" class="filter-btn" data-filter="completed" aria-pressed="false">완료</button>
+    </div>
+
+    <!-- To-do list (empty for now; keep no whitespace inside so :empty works) -->
+    <!-- 할 일 목록 (지금은 비어 있음, :empty 동작을 위해 내부 공백 없음) -->
+    <ul class="todo-list"></ul>
+    <!-- Shown only while the list is empty -->
+    <!-- 목록이 비어 있을 때만 표시 -->
+    <p class="empty">할 일이 없습니다</p>
+
+    <!-- Footer: counts (filled in by main.js) + clear completed -->
+    <!-- 하단: 할 일 개수 (main.js에서 채움) + 완료 항목 일괄 삭제 -->
+    <footer class="todo-footer">
+      <p class="todo-count">전체 <strong class="count-total">0</strong>개, 완료 <strong class="count-done">0</strong>개</p>
+      <button type="button" class="clear-btn">완료된 항목 삭제</button>
+    </footer>
+  </main>
+</body>
+</html>
